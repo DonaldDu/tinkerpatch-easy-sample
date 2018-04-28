@@ -5,12 +5,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.tencent.tinker.lib.util.TinkerLog;
 import com.tencent.tinker.loader.shareutil.ShareTinkerInternals;
 import com.tinkerpatch.sdk.TinkerPatch;
 import com.tinkerpatch.sdk.server.callback.ConfigRequestCallback;
 
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
@@ -20,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        TextView textView = (TextView) findViewById(R.id.textView);
+        textView.setText(new SimpleDateFormat("最后编译时间：yyyy/MM/dd HH:mm:ss").format(BuildConfig.LAST_BUILDER_DATE));
         Log.e(TAG, "I am on onCreate classloader1:" + MainActivity.class.getClassLoader().toString());
         //test resource change
         Log.e(TAG, "I am on onCreate string:" + getResources().getString(R.string.test_resource));

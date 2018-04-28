@@ -1,6 +1,6 @@
 apply plugin: 'tinkerpatch-support'
 def bakPath = file("D:/bakApk/")
-def baseInfo = "app-3.0.1-0428-13-42-12"
+def baseInfo = "app-3.0.1-0428-17-12-34"
 def variantName = "debug"
 
 /**
