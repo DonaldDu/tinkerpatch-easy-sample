@@ -1,6 +1,6 @@
 apply plugin: 'tinkerpatch-support'
 def bakPath = file("D:/bakApk/")
-def baseInfo = "app-3.0.1-0428-17-12-34"
+def baseInfo = "app-3.0.3-0428-17-44-28"
 def variantName = "debug"
 
 /**
@@ -24,10 +24,10 @@ tinkerpatchSupport {
 
     autoBackupApkPath = "${bakPath}"
 
-    appKey = "${TINKER_APP_KEY}"
+    appKey = "46b27cfbb7fa2e65"
 
     /** 注意: 若发布新的全量包, appVersion一定要更新 **/
-    appVersion = "3.0.1"
+    appVersion = "3.0.3"
 
     def pathPrefix = "${bakPath}/${baseInfo}/${variantName}/"
     def name = "${project.name}-${variantName}"
