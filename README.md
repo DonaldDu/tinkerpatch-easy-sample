@@ -16,3 +16,5 @@ Step by Step [接入攻略](http://tinkerpatch.com/Docs/SDK)
 TINKER_APP_KEY不能写到gradle.properties，不然编译通过，但运行会报错找不到TINKER_APP_KEY
 
 点击‘请求拉取补丁’后，只能从日志中查看相关信息，没有显示给用户看的。
+
+获取补丁成功后，还得把应用杀掉才能应用补丁成功。
