@@ -1,12 +1,6 @@
 apply plugin: 'tinkerpatch-support'
-import java.util.regex.Matcher
-import java.util.regex.Pattern
-
-/**
- * TODO: 请按自己的需求修改为适应自己工程的参数
- */
-def bakPath = file("${buildDir}/bakApk/")
-def baseInfo = "app-3.0.1-1212-19-36-52"
+def bakPath = file("D:/bakApk/")
+def baseInfo = "app-3.0.1-0428-13-42-12"
 def variantName = "debug"
 
 /**
@@ -30,7 +24,7 @@ tinkerpatchSupport {
 
     autoBackupApkPath = "${bakPath}"
 
-    appKey = "f938475486f91123"
+    appKey = "${TINKER_APP_KEY}"
 
     /** 注意: 若发布新的全量包, appVersion一定要更新 **/
     appVersion = "3.0.1"
@@ -104,39 +98,8 @@ tinkerPatch {
     }
     sevenZip {
         zipArtifact = "com.tencent.mm:SevenZip:1.1.10"
-//        path = "/usr/local/bin/7za"
     }
     buildConfig {
         keepDexApply = false
-    }
-}
-
-import java.util.regex.Matcher
-import java.util.regex.Pattern
-
-/**
- * 如果只想在Release中打开tinker，可以把tinkerEnable赋值为这个函数的return
- * @return 是否为release
- */
-def isRelease() {
-    Gradle gradle = getGradle()
-    String  tskReqStr = gradle.getStartParameter().getTaskRequests().toString()
-
-    Pattern pattern;
-    if (tskReqStr.contains("assemble")) {
-        println tskReqStr
-        pattern = Pattern.compile("assemble(\\w*)(Release|Debug)")
-    } else {
-        pattern = Pattern.compile("generate(\\w*)(Release|Debug)")
-    }
-    Matcher matcher = pattern.matcher(tskReqStr)
-
-    if (matcher.find()) {
-        String task = matcher.group(0).toLowerCase()
-        println("[BuildType] Current task: " + task)
-        return task.contains("release")
-    } else {
-        println "[BuildType] NO MATCH FOUND"
-        return true;
     }
 }
