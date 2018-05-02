@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         Log.e(TAG, "I am on onResume");
         super.onResume();
-
+        Log.i(TAG, "onResume: " + getString(R.string.app_name2));
     }
 
     @Override

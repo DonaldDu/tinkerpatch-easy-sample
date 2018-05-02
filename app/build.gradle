@@ -1,15 +1,16 @@
 apply plugin: 'com.android.application'
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "com.android.support:appcompat-v7:25.3.1"
-    implementation "com.android.support:multidex:1.0.3"
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support:multidex:1.0.3'
     implementation "com.tinkerpatch.sdk:tinkerpatch-android-sdk:${TINKERPATCH_VERSION}"
+    implementation project(':library')
 }
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion "26.0.2"
+    compileSdkVersion 27
+    buildToolsVersion '27.0.3'
 
     signingConfigs {
         release {
@@ -56,7 +57,7 @@ android {
 //region tinker
 ext {
     TINKER_APP_KEY = "46b27cfbb7fa2e65"
-    TINKER_BASE_INFO = "app-1.0-0502-09-35-38"
+    TINKER_BASE_INFO = "app-1.0-0502-10-03-56"
     TINKER_VARIANT_NAME = "debug"
 }
 apply from: 'tinkerpatch.gradle'
