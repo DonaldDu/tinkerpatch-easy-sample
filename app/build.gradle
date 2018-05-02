@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-apply from: 'tinkerpatch.gradle'
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "com.android.support:appcompat-v7:25.3.1"
@@ -53,3 +53,11 @@ android {
         }
     }
 }
+//region tinker
+ext {
+    TINKER_APP_KEY = "46b27cfbb7fa2e65"
+    TINKER_BASE_INFO = "app-1.0-0502-09-35-38"
+    TINKER_VARIANT_NAME = "debug"
+}
+apply from: 'tinkerpatch.gradle'
+//endregion
