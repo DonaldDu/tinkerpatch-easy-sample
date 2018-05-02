@@ -1,5 +1,5 @@
 apply plugin: 'tinkerpatch-support'
-def bakPath = file("D:/bakApk/${rootProject.name}")
+def bakPath = file("D:/TinkerPatch/${rootProject.name}")
 def baseInfo = "${TINKER_BASE_INFO}"
 def variantName = "${TINKER_VARIANT_NAME}"
 
